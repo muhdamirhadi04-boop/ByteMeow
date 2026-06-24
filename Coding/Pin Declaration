@@ -1,0 +1,21 @@
+// 1. DHT11 Humidity Sensor
+const int DHT_PIN = 17;
+#define DHTTYPE DHT11
+
+// 2. Servo Motor
+const int SERVO_PIN = 14;
+
+// 3. Gas Sensor and Traffic Light
+const int GAS_PIN = 34;
+const int LED_RED = 23;
+const int LED_YELLOW = 22;
+const int LED_GREEN = 21;
+
+// 4. Buzzer and Ultrasonic Sensor
+const int BUZZER_PIN = 25;
+const int TRIG_PIN = 26;
+const int ECHO_PIN = 27;
+
+// 5. LDR and Night Light
+const int LDR_PIN = 32;
+const int LAMPU_PIN = 33;
