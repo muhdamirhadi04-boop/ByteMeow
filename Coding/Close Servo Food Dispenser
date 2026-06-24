@@ -1,0 +1,15 @@
+void closeFeeder()
+{
+  // Close dispenser
+  myservo.write(0);
+
+  servoOpen = false;
+  servoClosedTime = millis();
+
+  Serial.println(
+    "Servo CLOSED: Dispensing completed."
+  );
+
+  // Send servo CLOSED status to Blynk
+  Blynk.virtualWrite(V6, 0);
+}
