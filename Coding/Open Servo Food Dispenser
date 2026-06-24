@@ -1,0 +1,38 @@
+void openFeeder()
+{
+  // Do not open if it is already open
+  if (servoOpen)
+  {
+    Serial.println(
+      "Servo is already open."
+    );
+
+    return;
+  }
+
+  // Prevent servo from operating too quickly
+  if (
+    millis() - servoClosedTime <
+    SERVO_COOLDOWN
+  )
+  {
+    Serial.println(
+      "Servo is still in cooldown."
+    );
+
+    return;
+  }
+
+  servoOpen = true;
+  servoOpenedTime = millis();
+
+  // Open dispenser
+  myservo.write(90);
+
+  Serial.println(
+    "Servo OPEN: Dispensing food."
+  );
+
+  // Send servo OPEN status to Blynk
+  Blynk.virtualWrite(V6, 1);
+}
