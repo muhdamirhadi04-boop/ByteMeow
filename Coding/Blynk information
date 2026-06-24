@@ -1,0 +1,5 @@
+#define BLYNK_TEMPLATE_ID "TMPL6jl2CemQk"
+#define BLYNK_TEMPLATE_NAME "Smart Cat Feeder"
+#define BLYNK_AUTH_TOKEN "Yumdh5pW1AELpOABEUliU8cl-2tdCAeJ"
+
+#define BLYNK_PRINT Serial
