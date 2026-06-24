@@ -1,0 +1,8 @@
+const float HUMIDITY_ALERT_THRESHOLD = 80.0;
+
+const int FOOD_DETECTION_DIST = 5;
+
+const int DIM_LIGHT_THRESHOLD = 1500;
+
+const int GAS_MID_THRESHOLD = 1300;
+const int GAS_DANGER_THRESHOLD = 1400;
