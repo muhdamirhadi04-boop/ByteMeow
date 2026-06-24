@@ -1,0 +1,3 @@
+BLYNK_CONNECTED()
+{
+  Serial.println("Connected to Blynk Cloud!");
