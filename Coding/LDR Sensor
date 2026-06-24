@@ -1,0 +1,33 @@
+lightValue = analogRead(LDR_PIN);
+
+  bool nightLightOn =
+    lightValue < DIM_LIGHT_THRESHOLD;
+
+  if (nightLightOn)
+  {
+    digitalWrite(LAMPU_PIN, HIGH);
+
+    Serial.print("LDR Value: ");
+    Serial.print(lightValue);
+    Serial.println(" | DARK - Night Light ON");
+  }
+  else
+  {
+    digitalWrite(LAMPU_PIN, LOW);
+
+    Serial.print("LDR Value: ");
+    Serial.print(lightValue);
+    Serial.println(" | BRIGHT - Night Light OFF");
+  }
+
+  // Send light reading to Blynk
+  Blynk.virtualWrite(V4, lightValue);
+
+  // Send lamp status to Blynk
+  Blynk.virtualWrite(
+    V5,
+    nightLightOn ? 1 : 0
+  );
+
+  Serial.println("--------------------------------------");
+}
