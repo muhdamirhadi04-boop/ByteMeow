@@ -1,0 +1,5 @@
+bool servoOpen = false;
+bool objectPreviouslyDetected = false;
+
+unsigned long servoOpenedTime = 0;
+unsigned long servoClosedTime = 0;
