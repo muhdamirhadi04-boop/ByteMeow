@@ -1,0 +1,18 @@
+void updateBuzzer()
+{
+  if (!humidityAlarmActive)
+  {
+    return;
+  }
+
+  if (
+    millis() - previousBuzzerTime >=
+    BUZZER_INTERVAL
+  )
+  {
+    previousBuzzerTime = millis();
+
+    // Change ON to OFF or OFF to ON
+    setBuzzer(!buzzerState);
+  }
+}
