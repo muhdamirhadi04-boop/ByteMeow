@@ -1,0 +1,3 @@
+DHT dht(DHT_PIN, DHTTYPE);
+Servo myservo;
+BlynkTimer timer;
