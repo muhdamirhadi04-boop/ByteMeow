@@ -1,0 +1,48 @@
+void readHumidity()
+{
+  float newHumidity = dht.readHumidity();
+
+  if (isnan(newHumidity))
+  {
+    Serial.println("Error: Failed to read DHT11!");
+    return;
+  }
+
+  humidityValue = newHumidity;
+
+  Serial.print("Humidity: ");
+  Serial.print(humidityValue, 1);
+  Serial.println("%");
+
+  // Send humidity to Blynk V0
+  Blynk.virtualWrite(V0, humidityValue);
+
+  // Check humidity condition
+  if (humidityValue >= HUMIDITY_ALERT_THRESHOLD)
+  {
+    if (!humidityAlarmActive)
+    {
+      humidityAlarmActive = true;
+
+      Serial.println(
+        "WARNING: Humidity is 50% or higher!"
+      );
+
+      setBuzzer(true);
+      previousBuzzerTime = millis();
+    }
+  }
+  else
+  {
+    if (humidityAlarmActive)
+    {
+      humidityAlarmActive = false;
+
+      Serial.println(
+        "Humidity returned to normal."
+      );
+
+      setBuzzer(false);
+    }
+  }
+}
