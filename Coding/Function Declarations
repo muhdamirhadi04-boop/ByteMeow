@@ -1,0 +1,10 @@
+void readHumidity();
+void readUltrasonic();
+void readGasAndLight();
+
+void openFeeder();
+void closeFeeder();
+void updateServo();
+
+void setBuzzer(bool state);
+void updateBuzzer();
