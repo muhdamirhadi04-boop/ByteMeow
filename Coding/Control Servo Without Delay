@@ -1,0 +1,11 @@
+void updateServo()
+{
+  if (
+    servoOpen &&
+    millis() - servoOpenedTime >=
+    SERVO_OPEN_DURATION
+  )
+  {
+    closeFeeder();
+  }
+}
