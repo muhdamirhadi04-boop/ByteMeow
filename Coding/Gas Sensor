@@ -1,0 +1,48 @@
+gasValue = analogRead(GAS_PIN);
+
+  String gasStatus;
+
+  // Safe gas level
+  if (gasValue < GAS_MID_THRESHOLD)
+  {
+    gasStatus = "SAFE";
+
+    digitalWrite(LED_GREEN, HIGH);
+    digitalWrite(LED_YELLOW, LOW);
+    digitalWrite(LED_RED, LOW);
+  }
+
+  // Warning gas level
+  else if (
+    gasValue >= GAS_MID_THRESHOLD &&
+    gasValue < GAS_DANGER_THRESHOLD
+  )
+  {
+    gasStatus = "WARNING";
+
+    digitalWrite(LED_GREEN, LOW);
+    digitalWrite(LED_YELLOW, HIGH);
+    digitalWrite(LED_RED, LOW);
+  }
+
+  // Dangerous gas level
+  else
+  {
+    gasStatus = "DANGEROUS";
+
+    digitalWrite(LED_GREEN, LOW);
+    digitalWrite(LED_YELLOW, LOW);
+    digitalWrite(LED_RED, HIGH);
+  }
+
+  Serial.print("Gas Level: ");
+  Serial.print(gasValue);
+
+  Serial.print(" | Gas Status: ");
+  Serial.println(gasStatus);
+
+  // Send gas reading to Blynk
+  Blynk.virtualWrite(V2, gasValue);
+
+  // Send gas text status to Blynk
+  Blynk.virtualWrite(V3, gasStatus);
