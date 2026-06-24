@@ -1,0 +1,4 @@
+bool humidityAlarmActive = false;
+bool buzzerState = false;
+
+unsigned long previousBuzzerTime = 0;
