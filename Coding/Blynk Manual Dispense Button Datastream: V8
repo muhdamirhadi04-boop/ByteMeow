@@ -1,0 +1,11 @@
+BLYNK_WRITE(V8)
+{
+  int buttonValue = param.asInt();
+
+  if (buttonValue == 1)
+  {
+    Serial.println("Blynk button pressed: Manual dispense");
+
+    openFeeder();
+  }
+}
