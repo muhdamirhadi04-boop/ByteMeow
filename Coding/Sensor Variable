@@ -1,0 +1,4 @@
+float humidityValue = 0.0;
+int distanceValue = 0;
+int gasValue = 0;
+int lightValue = 0;
