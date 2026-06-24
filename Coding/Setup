@@ -1,3 +1,76 @@
 void setup()
 {
   Serial.begin(115200);
+
+  // -----------------------------
+  // Initialize DHT11
+  // -----------------------------
+
+  dht.begin();
+
+  // -----------------------------
+  // Initialize servo
+  // -----------------------------
+
+  myservo.attach(SERVO_PIN);
+  myservo.write(0);
+
+  // Allow servo to operate immediately
+  servoClosedTime = millis() - SERVO_COOLDOWN;
+
+  // -----------------------------
+  // Pin modes
+  // -----------------------------
+
+  pinMode(BUZZER_PIN, OUTPUT);
+
+  pinMode(TRIG_PIN, OUTPUT);
+  pinMode(ECHO_PIN, INPUT);
+
+  pinMode(LAMPU_PIN, OUTPUT);
+
+  pinMode(LED_RED, OUTPUT);
+  pinMode(LED_YELLOW, OUTPUT);
+  pinMode(LED_GREEN, OUTPUT);
+
+  // -----------------------------
+  // Initial output conditions
+  // -----------------------------
+
+  digitalWrite(BUZZER_PIN, LOW);
+  digitalWrite(LAMPU_PIN, LOW);
+
+  digitalWrite(LED_RED, LOW);
+  digitalWrite(LED_YELLOW, LOW);
+  digitalWrite(LED_GREEN, LOW);
+
+  Serial.println("======================================");
+  Serial.println("Smart Cat Feeder with Blynk IoT");
+  Serial.println("Connecting to Wi-Fi and Blynk...");
+  Serial.println("======================================");
+
+  // -----------------------------
+  // Connect ESP32 to Blynk
+  // -----------------------------
+
+  Blynk.begin(
+    BLYNK_AUTH_TOKEN,
+    ssid,
+    pass
+  );
+
+  // -----------------------------
+  // Sensor reading intervals
+  // -----------------------------
+
+  // DHT11 every 2 seconds
+  timer.setInterval(2000L, readHumidity);
+
+  // Ultrasonic every 500 milliseconds
+  timer.setInterval(500L, readUltrasonic);
+
+  // Gas and LDR every 1 second
+  timer.setInterval(1000L, readGasAndLight);
+
+  Serial.println("System started successfully!");
+}
