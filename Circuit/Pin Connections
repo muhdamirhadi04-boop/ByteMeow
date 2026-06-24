@@ -1,0 +1,28 @@
+| Component       | Component Pin | Connection                                               |
+| --------------- | ------------- | -------------------------------------------------------- |
+| DHT11           | VCC           | ESP32 3.3V                                               |
+|                 | DATA          | GPIO17                                                   |
+|                 | GND           | ESP32 GND                                                |
+| Servo SG90      | Signal        | GPIO14                                                   |
+|                 | VCC           | Bekalan 5V luaran                                        |
+|                 | GND           | GND bekalan disambungkan bersama GND ESP32               |
+| Gas Sensor      | AO            | GPIO34 melalui voltage divider jika output melebihi 3.3V |
+|                 | VCC           | ESP32 5V / bekalan 5V                                    |
+|                 | GND           | ESP32 GND                                                |
+| Red LED         | Anode `+`     | GPIO23 melalui resistor 220–330Ω                         |
+|                 | Cathode `−`   | GND                                                      |
+| Yellow LED      | Anode `+`     | GPIO22 melalui resistor 220–330Ω                         |
+|                 | Cathode `−`   | GND                                                      |
+| Green LED       | Anode `+`     | GPIO21 melalui resistor 220–330Ω                         |
+|                 | Cathode `−`   | GND                                                      |
+| Active Buzzer   | Positive `+`  | GPIO25                                                   |
+|                 | Negative `−`  | GND                                                      |
+| HC-SR04         | VCC           | ESP32 5V                                                 |
+|                 | TRIG          | GPIO26                                                   |
+|                 | ECHO          | GPIO27 melalui voltage divider                           |
+|                 | GND           | ESP32 GND                                                |
+| LDR Module      | AO            | GPIO32                                                   |
+|                 | VCC           | ESP32 3.3V                                               |
+|                 | GND           | ESP32 GND                                                |
+| Night-Light LED | Anode `+`     | GPIO33 melalui resistor 220–330Ω                         |
+|                 | Cathode `−`   | GND                                                      |
