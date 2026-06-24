@@ -1,4 +1,0 @@
-Blynk.virtualWrite(V5, digitalRead(LAMPU_PIN));
-  Blynk.virtualWrite(V6, servoOpen ? 1 : 0);
-  Blynk.virtualWrite(V7, buzzerState ? 1 : 0);
-}
