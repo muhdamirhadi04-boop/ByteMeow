@@ -1,0 +1,19 @@
+void setBuzzer(bool state)
+{
+  buzzerState = state;
+
+  if (buzzerState)
+  {
+    digitalWrite(BUZZER_PIN, HIGH);
+  }
+  else
+  {
+    digitalWrite(BUZZER_PIN, LOW);
+  }
+
+  // Send buzzer status to Blynk
+  Blynk.virtualWrite(
+    V7,
+    buzzerState ? 1 : 0
+  );
+}
