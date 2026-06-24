@@ -1,0 +1,12 @@
+void loop()
+{
+  // Maintain Blynk connection
+  Blynk.run();
+
+  // Run sensor timers
+  timer.run();
+
+  // Control actuator timing without long delay
+  updateServo();
+  updateBuzzer();
+}
