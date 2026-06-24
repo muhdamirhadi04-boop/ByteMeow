@@ -1,0 +1,8 @@
+// Servo stays open for 5 seconds
+const unsigned long SERVO_OPEN_DURATION = 5000;
+
+// Wait 2 seconds before servo can open again
+const unsigned long SERVO_COOLDOWN = 2000;
+
+// Buzzer changes ON/OFF every 1 second
+const unsigned long BUZZER_INTERVAL = 1000;
